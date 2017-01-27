@@ -1,47 +1,72 @@
 $(document).ready(function () {
-  // Built by LucyBot. www.lucybot.com
- 
-  var url = "https://api.nytimes.com/svc/topstories/v2/home.json";
-  url += '?' + $.param({
-    'api-key': "049673d3a2eb4eda9c6bb4ec46c49cf5",
-    'callback': "12"
-  });
-  $.ajax({
-    url: url,
-    method: 'GET',
-  })
-  .done(function (result) {
-    //console.log(result);
-    var dataSet = result;
-    console.log( dataSet.results);
-    if (dataSet.results.length > 0) {
-      $.each(dataSet.results, function (index, value) {
-        var newsImageLink='';
-        //debugger;
-        if ( value.multimedia.length){
-           newsImageLink = value.multimedia[3].url;
-          console.log(newsImageLink);
+//variable to store the value of the current selected option 
+  var userSelect = '';
+
+  $('.selector').on('change', function () {
+    userSelect = this.value;
+    //if the user selected home, the url should look like below
+    //var url = "https://api.nytimes.com/svc/topstories/v2/home.json";
+    var url = 'https://api.nytimes.com/svc/topstories/v2/' + userSelect + '.json';
+    alert(url);
+    url += '?' + $.param({
+      'api-key': "049673d3a2eb4eda9c6bb4ec46c49cf5",
+      'callback': "12"
+    });
+    $.ajax({
+      url: url,
+      method: 'GET',
+    })
+      .done(function (result) {
+        console.log(result);
+
+        //var dataSet = result.filter(isBigEnough).splice(12);
+        //console.log(dataSet);
+        var dataSet = result;
+        // console.log('dataSet' + dataSet);     
+        //console.log(dataSet.results.multimedia[3]);
+
+        if (dataSet.results.length > 0) {
+
+
+          $.each(dataSet.results, function (index, value) {
+            var changeInput = $('.selector').val();
+            console.log(changeInput)
+            /*
+            set the newsImageLink to empty and only add
+            the image link if there is stuff in it
+             */
+            var newsImageLink = '';
+            //debugger;
+            if (value.multimedia.length) {
+              newsImageLink = value.multimedia[3].url;
+              console.log(newsImageLink);
+            }
+            $('.news').append('<li class="results_wrap"><h3 class="h1result">' + value.title + '</h3><img src=' + newsImageLink + ' /></li>');
+          })
         }
-         
-        $('.news').append('<li class="results_wrap"><h3 class="h1result">' + value.title + '</h3><img src=' + newsImageLink + ' /></li>');
-
+        else {
+          alert('got no data back from server');
+        }
       })
-
-    }
-
-    else {
-      alert('got no data back from server');
-  }
-  })
-  .fail(function (err) {
-    throw err;
+      .fail(function (err) {
+        throw err;
+      });
   });
 
-});
+}); //end of select change - the user selected something
 
+function isBigEnough(value) {
+  return value >= 4;
+}
 
+//var filtered = [12, 5, 8, 130, 44].filter(isBigEnough);
 
+// function processArray(inputArray) {
+//   var filteredMulimediaArray = [inputArray.multimedia.length].filter(isBigEnough);
+//   return filteredMulimediaArray; 
+// }
 
+// }); 
 
 
 
