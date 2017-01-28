@@ -2,8 +2,8 @@
 <html>
 
 <head>
-    <title>InstaNews</title>
     <meta charset="utf-8">
+    <title>InstaNews</title>
     <link rel="stylesheet" type="text/css" href="build/css/style.min.css">
 </head>
 
@@ -13,30 +13,40 @@
     <div class="container">
         <header>
 
-        <div class="logo">
-            <img src="images/nyt-logo.svg" alt="New York times logo">    
-        </div>    
-         
+            <div class="logo">
+                <img src="images/nyt-logo.svg" alt="New York times logo">
+            </div>
 
-        <div class="select">
-            <p class="select-label">Choose a section</p>
-            <select class="selector">
+            <div class="select">
+                <p class="select-label">Choose a section</p>
+                <select class="selector">
                 <option value="section">Section...</option>
                 <option value="home">Home</option>
                 <option value="science">Science</option>
                 <option value="business">Business</option>
                 <option value="sports">Sports</option>
-            </select>        
-        </div>  
+            </select>
+            </div>
         </header>
-    <ul class="news" id="news"> </ul>    
+        <section>
+            <div class="loading" id="loading">
+                <img src="images/ajax-loader.gif" alt="Ajax Loader" />
+                <p>Loading Your Selected News </p>
+            </div>
+            <div>
+                <ul class="news" id="news">
  
-     <div class="imageContainer"> </div>
- 
-<!--      <select>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-    </select> -->
+                </ul>
+            </div>
+            <div class='error'>
+            </div>
+
+        </section>
+
+
+        <div class="imageContainer"> </div>
+
+
         <footer class="footer container">
             <div>&copy; Copyright 2016 <span class="upper-case"> instanews</span></div>
         </footer>

@@ -1,5 +1,12 @@
 * {
     background-color: $background-color;
     color: $global-font-color;
+    font-size: $font-size;
+}
+
+footer {
+    position:fixed;
+    left: 25%;
+    bottom: 0px;
 }
  

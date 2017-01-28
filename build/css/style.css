@@ -70,4 +70,22 @@ img {
 
 * {
   background-color: black;
-  color: white; }
+  color: white;
+  font-size: 16px; }
+
+footer {
+  position: fixed;
+  left: 25%;
+  bottom: 0px; }
+
+.selector {
+  background-color: white;
+  color: black; }
+
+.logo {
+  margin-top: 4rem;
+  margin-left: 4rem; }
+
+.select {
+  margin-left: 7.5rem;
+  margin-top: 0.2rem; }

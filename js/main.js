@@ -1,13 +1,25 @@
 $(document).ready(function () {
-//variable to store the value of the current selected option 
+  //variable to store the value of the current selected option 
   var userSelect = '';
+  var $news = $('.news');
+  //empty out the UL section
+  $news.empty();
+
+
+  var $loadingMessage = $('#loading');
+  $loadingMessage.hide();
+
 
   $('.selector').on('change', function () {
+    //animate the logo
+    $news.empty();
+    $('.logo img').css('height', '120px').css('margin', '0 auto');
+   // $('.logo').css('transition', 'margin-top 2s').css('translate', 'margin');
     userSelect = this.value;
-    //if the user selected home, the url should look like below
-    //var url = "https://api.nytimes.com/svc/topstories/v2/home.json";
+    //new to show that the page is doing the search
+    $loadingMessage.show();
+
     var url = 'https://api.nytimes.com/svc/topstories/v2/' + userSelect + '.json';
-    alert(url);
     url += '?' + $.param({
       'api-key': "049673d3a2eb4eda9c6bb4ec46c49cf5",
       'callback': "12"
@@ -16,127 +28,50 @@ $(document).ready(function () {
       url: url,
       method: 'GET',
     })
+
       .done(function (result) {
-        console.log(result);
+        $loadingMessage.hide();
+        //we filter out the mulimedia array for items with have data in the multimedia
+        //after that we select only 12 items from the results    
+        var $dataSet = result.results.filter(function (item) {
+          return item.multimedia.length;
+        }).splice(0, 12);
+       //console.log($dataSet)  ;
+      $.each($dataSet, function(item, value){
 
-        //var dataSet = result.filter(isBigEnough).splice(12);
-        //console.log(dataSet);
-        var dataSet = result;
-        // console.log('dataSet' + dataSet);     
-        //console.log(dataSet.results.multimedia[3]);
+        //variances & markups
+        var newsString = '';
+        var $newslink = value.url;
+        var $abstract = value.abstract;
+        var $newsimage = value.multimedia[4].url;
+       
+        newsString += '<li><a href=' + $newslink + ' target="_blank">';
+        newsString += '<p>'+ $abstract +'</p>';
+        newsString += '<img src=" '+ $newsimage +'">';
+        newsString += '</></a></li>';
+        console.log(newsString);
 
-        if (dataSet.results.length > 0) {
+        // $('.news').append('<li class="results_wrap"><h3 class="h1result">' + value.abstract + '</h3><img src=' + value.multimedia[4].url + ' /></li>');
+        $news.append(newsString);
+      });
+     
 
 
-          $.each(dataSet.results, function (index, value) {
-            var changeInput = $('.selector').val();
-            console.log(changeInput)
-            /*
-            set the newsImageLink to empty and only add
-            the image link if there is stuff in it
-             */
-            var newsImageLink = '';
-            //debugger;
-            if (value.multimedia.length) {
-              newsImageLink = value.multimedia[3].url;
-              console.log(newsImageLink);
-            }
-            $('.news').append('<li class="results_wrap"><h3 class="h1result">' + value.title + '</h3><img src=' + newsImageLink + ' /></li>');
-          })
-        }
-        else {
-          alert('got no data back from server');
-        }
-      })
+      }) //end of .done() part
       .fail(function (err) {
-        throw err;
+        $loadingMessage.hide();
+        $('.error').append('<p>Sorry, there was an error pulling data from New York times</p>' + err);
       });
   });
 
 }); //end of select change - the user selected something
 
-function isBigEnough(value) {
-  return value >= 4;
-}
-
-//var filtered = [12, 5, 8, 130, 44].filter(isBigEnough);
-
-// function processArray(inputArray) {
-//   var filteredMulimediaArray = [inputArray.multimedia.length].filter(isBigEnough);
-//   return filteredMulimediaArray; 
-// }
-
-// }); 
 
 
 
 
 
 
-// $(document).ready(function () {
 
-//   // Built by LucyBot. www.lucybot.com
-// var url = "https://api.nytimes.com/svc/topstories/v2/home.json";
-// url += '?' + $.param({
-//   'api-key': "049673d3a2eb4eda9c6bb4ec46c49cf5",
-//   'callback': "12"
-// });
-// $.ajax({
-//   url: url,
-//   method: 'GET',
-// }).done(function(result) {
-//   console.log(result);
-// }).fail(function(err) {
-//   throw err;
-//});
-// var selectedValue =''; 
-// $('select').on('change',function() {
-//   selectedValue = this.value;
-//   alert(selectedValue);
-//   return selectedValue;
-// });
 
-// console.log(selectedValue);
-// //var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
-// var url = "https://api.nytimes.com/svc/topstories/v2/home.json";
-// url += '?' + $.param({
-//   'api-key': "049673d3a2eb4eda9c6bb4ec46c49cf5",
-//   'callback': '12',
-//   'q': "sports"
-// });
-// console.log(url);
-// $.ajax({
-//   url: url,
-//   method: 'GET',
-// }).done(function(result) {
-//   console.log(result);
 
-//   var data = result;
-  // if (data.length > 0) {
-  //   alert('here');
-  // }
-  // else
-  // {
-  //   alert('Nothing back from NY times');
-  // }
-  //console.log(data);
-
-  // $.each(data.results, function (index, value) {
-  //     var imageUrl = value.multimedia[1].url;
-  //     console.log(imageUrl);
-  //     console.log(value.multimedia.length);
-  //     // console.log()
-  //     $('.news1').append('<div class="results_wrap"><h1 class="h1result">'+value.lead_paragraph+'</h1><img src="'+ 'http://www.nytimes.com/' +value.multimedia[1].url+'" /></div>');
-
-  //                          });
-
-  //console.log(result.response.docs[0].lead_paragraph);
-  //console.log(result.response.docs[0].multimedia[1].url);
-
-  //var imageUrl = result.response.docs[0].multimedia[1].url;
-  //$('.imageContainer').append('<img  src="http://www.nytimes.com/' + imageUrl + '" />' );
-
-// }).fail(function(err) {
-//   throw err;
-// });
-// })
