@@ -1,12 +1,27 @@
+header {
+    //text-align: center;
+    @include centerThing;
+    overflow: hidden;
+    .logo {
+             @include centerThing;
+             padding-top: 9rem;
+    }
+}
 .selector {
     background-color: white;
     color: black;
 }
-.logo {
-    margin-top: 4rem;
-    margin-left: 4rem;
-}
+ 
 .select {
-    margin-left: 7.5rem;
-    margin-top: 0.2rem;
+    margin-top: 2rem;
+    @include centerThing;
+ 
+    p {
+            @include centerThing;
+            padding-bottom: .4rem;
+     }
 }
+li a{
+    text-decoration: none;
+}
+

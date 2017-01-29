@@ -73,19 +73,52 @@ img {
   color: white;
   font-size: 16px; }
 
-footer {
+.footer {
   position: fixed;
-  left: 25%;
-  bottom: 0px; }
+  left: 0;
+  right: 0;
+  text-align: center;
+  bottom: 0;
+  padding: 1rem; }
+
+header {
+  left: 0;
+  right: 0;
+  text-align: center;
+  overflow: hidden; }
+  header .logo {
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding-top: 9rem; }
 
 .selector {
   background-color: white;
   color: black; }
 
-.logo {
-  margin-top: 4rem;
-  margin-left: 4rem; }
-
 .select {
-  margin-left: 7.5rem;
-  margin-top: 0.2rem; }
+  margin-top: 2rem;
+  left: 0;
+  right: 0;
+  text-align: center; }
+  .select p {
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding-bottom: .4rem; }
+
+li a {
+  text-decoration: none; }
+
+.newsContainer {
+  left: 0;
+  right: 0;
+  text-align: center; }
+  .newsContainer .loading {
+    padding-bottom: .5rem;
+    transform: scale(0.02); }
+  .newsContainer .newsGrid {
+    margin-top: 0.5rem; }
+    .newsContainer .newsGrid .news ul > li > a {
+      text-decoration: none;
+      text-align: left; }

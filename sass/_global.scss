@@ -4,9 +4,11 @@
     font-size: $font-size;
 }
 
-footer {
-    position:fixed;
-    left: 25%;
-    bottom: 0px;
+.footer {
+  position: fixed;
+  @include centerThing;
+  bottom: 0;
+  padding: 1rem;
 }
+
  

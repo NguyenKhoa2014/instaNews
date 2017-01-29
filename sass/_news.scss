@@ -1,0 +1,19 @@
+.newsContainer {
+    @include centerThing;
+    .loading {
+        padding-bottom: .5rem;
+        transform: scale(0.02);
+    }
+    .newsGrid {
+        margin-top: 0.5rem;
+        .news ul >li > a{
+            text-decoration:none;
+            p {
+                text-align: left;
+            } 
+        }
+    }
+ 
+}
+
+ 
