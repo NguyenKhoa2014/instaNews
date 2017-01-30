@@ -13,7 +13,23 @@
             } 
         }
     }
- 
+}
+@media (min-width: $tablet) {
+  .newsGrid >ul >li {
+      width: 50%;
+      min-width: 300px;
+      display:inline-flex;
+      flex-wrap: wrap;
+  }
+}
+
+@media (min-width: $desktop) {
+  .newsGrid >ul >li {
+      width: 25%;
+      //min-width: 300px;
+      display:inline-flex;
+      flex-wrap: wrap;
+  }
 }
 
  

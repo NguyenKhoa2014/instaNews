@@ -1,8 +1,28 @@
-File Structure
+FILE STRUCTURE
 index.html
-build --css __style.css   
-     |   |_____style.min.css
+build --css _ _style.css   
+     |   |___ _style.min.css
      |
      |__js __main.min.js
-sass _____ __font.scss
-    |_____ __global.scss      
+
+fonts
+
+sass _____ _font.scss
+    |_____ _global.scss   
+    |_____ _header.scss
+    |_____ _mixins.scss
+    |_____ _news.scss
+    |_____ _reset.scss
+    |_____ _variables.scss
+    |_____  style.scss  
+
+images
+
+js  ______   main.js
+
+FUNCTIONALITY
+
+
+
+
+ 

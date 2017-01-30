@@ -112,6 +112,23 @@ header {
 li a {
   text-decoration: none; }
 
+@media (min-width: 600px) {
+  header {
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-line-pack: center;
+        align-content: center; }
+    header .logo {
+      padding-right: 1rem;
+      padding-left: 4rem; }
+    header .select {
+      padding-top: 4rem;
+      padding-left: 1rem; } }
+
 .newsContainer {
   left: 0;
   right: 0;
@@ -125,3 +142,20 @@ li a {
       text-decoration: none; }
       .newsContainer .newsGrid .news > li > a p {
         text-align: left; }
+
+@media (min-width: 600px) {
+  .newsGrid > ul > li {
+    width: 50%;
+    min-width: 300px;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap; } }
+
+@media (min-width: 1024px) {
+  .newsGrid > ul > li {
+    width: 25%;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap; } }
