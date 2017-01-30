@@ -71,7 +71,7 @@ img {
 * {
   background-color: black;
   color: white;
-  font-size: 16px; }
+  font-size: 14px; }
 
 .footer {
   position: fixed;
@@ -80,6 +80,8 @@ img {
   text-align: center;
   bottom: 0;
   padding: 1rem; }
+  .footer .upper-case {
+    text-transform: uppercase; }
 
 header {
   left: 0;
@@ -119,6 +121,7 @@ li a {
     transform: scale(0.02); }
   .newsContainer .newsGrid {
     margin-top: 0.5rem; }
-    .newsContainer .newsGrid .news ul > li > a {
-      text-decoration: none;
-      text-align: left; }
+    .newsContainer .newsGrid .news > li > a {
+      text-decoration: none; }
+      .newsContainer .newsGrid .news > li > a p {
+        text-align: left; }

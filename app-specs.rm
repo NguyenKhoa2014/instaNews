@@ -1,0 +1,8 @@
+File Structure
+index.html
+build --css __style.css   
+     |   |_____style.min.css
+     |
+     |__js __main.min.js
+sass _____ __font.scss
+    |_____ __global.scss      

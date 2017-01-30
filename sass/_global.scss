@@ -9,6 +9,9 @@
   @include centerThing;
   bottom: 0;
   padding: 1rem;
+  .upper-case{
+      text-transform: uppercase;
+  }
 }
 
  

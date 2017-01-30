@@ -2,7 +2,6 @@ $(document).ready(function () {
    
   var userSelect = ''; //variable to store the value of the current selected option 
   var $news = $('.news');
-   
   $news.empty(); //clear out the UL that store news section
 
   var $loadingMessage = $('#loading');
@@ -12,8 +11,8 @@ $(document).ready(function () {
      
     $news.empty();
     $('.logo img').css('height', '140px').css('scale','0.75');
-     //animate the logo
-    $('.logo').css('padding-top', '4rem');
+      
+    $('.logo').css('padding-top', '4rem'); //animate the logo
     userSelect = this.value;
     //user feedback showing that the page is doing the search
     $loadingMessage.show();
@@ -54,17 +53,15 @@ $(document).ready(function () {
         // $('.news').append('<li class="results_wrap"><h3 class="h1result">' + value.abstract + '</h3><img src=' + value.multimedia[4].url + ' /></li>');
         $news.append(newsString);
       });
-     
-
 
       }) //end of .done() part
       .fail(function (err) {
         $loadingMessage.hide();
         $('.error').append('<p>Sorry, there was an error pulling data from New York times</p>' + err);
       });
-  });
+  }); //end of select change - the user selected something
 
-}); //end of select change - the user selected something
+}); //end of document ready
 
 
 
