@@ -123,39 +123,55 @@ li a {
     -ms-flex-line-pack: center;
         align-content: center; }
     header .logo {
-      padding-right: 1rem;
-      padding-left: 4rem; }
+      transform: translateX(50px); }
     header .select {
-      padding-top: 4rem;
-      padding-left: 1rem; } }
+      transform: translateX(100px);
+      width: 300px; } }
 
-.newsContainer {
-  left: 0;
-  right: 0;
-  text-align: center; }
-  .newsContainer .loading {
-    padding-bottom: .5rem;
-    transform: scale(0.02); }
-  .newsContainer .newsGrid {
-    margin-top: 0.5rem; }
-    .newsContainer .newsGrid .news > li > a {
-      text-decoration: none; }
-      .newsContainer .newsGrid .news > li > a p {
-        text-align: left; }
+.headerCompact {
+  margin: 25px; }
+  .headerCompact img {
+    width: 150px; }
+  .headerCompact .logo {
+    padding-top: 0; }
+  .headerCompact .select {
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    text-align: center; }
 
-@media (min-width: 600px) {
-  .newsGrid > ul > li {
-    width: 50%;
-    min-width: 300px;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
+.newsGrid {
+  width: 100%; }
+  .newsGrid .news {
+    display: -ms-flexbox;
+    display: flex;
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap; } }
-
-@media (min-width: 1024px) {
-  .newsGrid > ul > li {
-    width: 25%;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap; } }
+        flex-wrap: wrap; }
+  .newsGrid li {
+    width: 100%;
+    left: 0;
+    right: 0;
+    text-align: center; }
+    @media (min-width: 600px) {
+      .newsGrid li {
+        width: 50%; }
+        .newsGrid li .select {
+          width: 200px; } }
+    @media (min-width: 1024px) {
+      .newsGrid li {
+        width: 25%; } }
+    .newsGrid li .newsimg {
+      position: relative;
+      width: 100%;
+      height: 420px;
+      background-size: cover;
+      background-position: center; }
+      .newsGrid li .newsimg .text-wrapper {
+        background: rgba(0, 0, 0, 0.6);
+        position: absolute;
+        bottom: 0;
+        top: 360px; }
+        .newsGrid li .newsimg .text-wrapper p {
+          text-align: left;
+          color: #fff;
+          background: 0; }

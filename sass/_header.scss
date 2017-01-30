@@ -31,14 +31,28 @@ li a{
           align-items:center;
           align-content:center;
           .logo {
-              padding-right: 1rem;
-              padding-left: 4rem;
+              transform: translateX(50px);
           }
           .select {
-              padding-top:4rem;
-              padding-left:1rem;
+              transform: translateX(100px);
+              width: 300px;
           }
      }
 }
 
+.headerCompact {
+    margin: 25px;
+    img {
+        width: 150px;
+    }
+    .logo {
+        padding-top:0;
+    }
+    .select {
+       //width: 200px;
+        margin: 0 auto;
+        @include centerThing;
+    }
+     
 
+}

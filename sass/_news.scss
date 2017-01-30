@@ -1,35 +1,99 @@
-.newsContainer {
-    @include centerThing;
-    .loading {
-        padding-bottom: .5rem;
-        transform: scale(0.02);
+ 
+.newsGrid {
+    width: 100%;
+    .news {
+            display:flex;
+            flex-wrap:wrap;
     }
-    .newsGrid {
-        margin-top: 0.5rem;
-        .news  >li > a{
-            text-decoration:none;
-            p {
-                text-align: left;
-            } 
+    li {
+
+        width: 100%;        
+        @include centerThing;
+        @include tablet {
+            width: 50%;
+            .select {
+                width: 200px;
+            }
+        }  
+        @include desktop {
+            width: 25%;
         }
+ 
+        .newsimg {
+            position: relative;
+            width: 100%;
+            height: 420px; 
+            background-size: cover;
+            background-position: center;
+            .text-wrapper {
+                background: rgba(0,0,0,.6);
+               //opacity:0.5;
+              position: absolute;
+              bottom:0;
+              top:360px;
+             
+              p {
+                text-align: left;
+                color:#fff;
+                background: 0;
+             }
+            }       
+        }
+        
+ 
     }
-}
-@media (min-width: $tablet) {
-  .newsGrid >ul >li {
-      width: 50%;
-      min-width: 300px;
-      display:inline-flex;
-      flex-wrap: wrap;
-  }
 }
 
-@media (min-width: $desktop) {
-  .newsGrid >ul >li {
-      width: 25%;
-      //min-width: 300px;
-      display:inline-flex;
-      flex-wrap: wrap;
-  }
-}
+// @include tablet {
+
+// }  
+
+ 
+
+
+
+// .newsContainer {
+//     @include centerThing;
+//     .loading {
+//         padding-bottom: .5rem;
+//         transform: scale(0.02);
+//     }
+//     .newsGrid {
+
+//         margin-top: 0.5rem;
+//         .news  >li > a{
+//             text-decoration:none;
+//             img {
+//                 height: 360px;
+//                 width: 100%;
+//             }
+//             p {
+//                 text-align: left;
+//             } 
+//         }
+//     }
+// }
+// @media (min-width: $tablet) {
+  
+//   .newsGrid >ul >li {
+//       width: 50%;
+//       min-width: 300px;
+//       //display:inline-flex;
+//       //flex-wrap: wrap;
+//       img {
+//           height: 360px;
+//           width: 100%;
+//       }
+//   }
+// }
+
+// @media (min-width: $desktop) {
+//   .newsGrid >ul >li {
+//       width: 25%;
+//       //min-width: 300px;
+//       display:inline-flex;
+//       flex-wrap: wrap;
+//   }
+// }
 
  

@@ -10,9 +10,9 @@ $(document).ready(function () {
   $('.selector').on('change', function () {
      
     $news.empty();
-    $('.logo img').css('height', '140px').css('scale','0.75');
-      
-    $('.logo').css('padding-top', '4rem'); //animate the logo
+  //  $('.logo img').css('height', '140px').css('scale','0.75');
+     $('header').addClass('headerCompact') ;
+ //   $('.logo').css('padding-top', '4rem'); //animate the logo
     userSelect = this.value;
     //user feedback showing that the page is doing the search
     $loadingMessage.show();
@@ -45,8 +45,9 @@ $(document).ready(function () {
        
         newsString += '<li><a href=' + $newslink + ' target="_blank">';
         //newsString += '<p>'+ $abstract +'</p>';
-        newsString += '<img src=" '+ $newsimage +'">';
-        newsString += '<p>'+ $abstract +'</p>';
+        newsString += '<div class="newsimg" style="background-image: url( '+ $newsimage +' )">';
+
+        newsString += '<div class="text-wrapper"><p>'+ $abstract +'</p></div></div>';
         newsString += '</></a></li>';
         console.log(newsString);
 
