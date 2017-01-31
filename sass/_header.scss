@@ -1,6 +1,6 @@
 header {
-    //text-align: center;
     @include centerThing;
+    transition: $ease-in;
     overflow: hidden;
     .logo {
              @include centerThing;
@@ -27,15 +27,35 @@ li a{
 @media (min-width: $tablet){
      header {
           display:inline-flex;
-          justify-content:space-between;
+        //   justify-content:space-between;
           align-items:center;
           align-content:center;
-          .logo {
-              transform: translateX(50px);
-          }
+          width: 100%;
+          @keyframes moveRight {
+             0% {
+                transform: translate(0, 0);    
+             }
+            100% {
+                transform: translate(20px, 0);
+            }
+          }    
+         @keyframes moveLeft {
+             0% {
+                transform: translate(10px, 0);    
+             }
+            100% {
+                transform: translate(0, 0);
+            }
+          }       
           .select {
-              transform: translateX(100px);
-              width: 300px;
+                padding-top: 5rem;
+                margin-left: 0.5rem;
+                animation: moveRight 3s forwards;
+                animation-direction: alternate;
+          }
+          .logo {
+                animation: moveLeft 3s forwards;
+                animation-direction: alternate; 
           }
      }
 }
@@ -49,10 +69,11 @@ li a{
         padding-top:0;
     }
     .select {
-       //width: 200px;
+        padding-top: 3rem;
         margin: 0 auto;
         @include centerThing;
+        margin-left: 1rem;
+    
     }
-     
 
 }

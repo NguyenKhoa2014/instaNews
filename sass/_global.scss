@@ -3,7 +3,9 @@
     color: $global-font-color;
     font-size: $font-size;
 }
-
+html {
+    font-family: $default-font;
+}
 .footer {
   position: fixed;
   @include centerThing;
